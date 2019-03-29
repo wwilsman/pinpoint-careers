@@ -2,4 +2,4 @@
 
 # Coding Tests
 
-This repository contains coding tests use for evaluating potential employees.
+This repository contains coding tests used for evaluating potential employees.
