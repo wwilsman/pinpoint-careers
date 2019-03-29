@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Pinpoint](../.github/pinpoint.png)
 
-## Available Scripts
+# Front-End Developer Test
 
-In the project directory, you can run:
+You will have 1 day to complete the following test. It is meant to gauge your ability to do the type of daily work expected of a member of the Front-End team. If you have any questions, please reach out to the hiring manager.
 
-### `npm start`
+The `/instructions` directory contains additional items to help you complete this test.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## The Task
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+We are adding a new screen to an existing React web application. The screen allows a user to select a department/team in the breadcrumb, view a list of employees on that team, and then view details for each employee.
 
-### `npm test`
+You have been provided a Photoshop file; the breadcrumb and list of employees is _production-ready_ design while the employee profile section is only a _wireframe_. You should do your best to mimic the existing design style when building out the profile section.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You have also been provided with three API endpoints to retrieve the necessary data.
 
-### `npm run build`
+### Data Sources
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The following endpoints can be used:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+|Content|URL|
+|-|-|
+|List of Teams|http://www.mocky.io/v2/5c9d99d133000056003f2385|
+|List of Employees|http://www.mocky.io/v2/5c9d99c4330000ae343f2384?team=XYZ|
+|List of Recent Files|http://www.mocky.io/v2/5c9d99b13300005b003f2382?employee=XYZ|
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pass the appropriate parent ID to the request for any children. Note, though, that the content returned by the mock API will be the same.
 
-### `npm run eject`
+Samples of the payloads are also included in this repository.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Technology Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We've included the following libraries for your use:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Axios — HTTP Requests
+* LESS — Styling
+* FontAwesome — Iconography
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You will also find a theme file at `/less/variables.less`.
 
-## Learn More
+## FAQ
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*Does my output have to be a pixel-perfect match to the Photoshop file?*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It should be as close as possible; note, however, that design files are sometimes inconsistent.
 
-### Code Splitting
+*Can I add other packages?*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Yes.
 
-### Analyzing the Bundle Size
+*Do you want me to comment my code?*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Comment your code as your normally would for this sort of project. Please do not feel like you have to add comments because this is a test.
 
-### Making a Progressive Web App
+*I have another question about direction...*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+We're leaving things a bit vague on purpose. We want to see what decisions you make, and we want you to have room to run solo—which is what we'll expect of you if you're hired. Trust your judgement and move forward.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If you have a different type of question, please contact the hiring manager.
