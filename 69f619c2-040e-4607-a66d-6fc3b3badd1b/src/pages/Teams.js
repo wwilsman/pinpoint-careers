@@ -1,16 +1,44 @@
-import React, { Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import { Link, navigate } from '@reach/router';
+import axios from 'axios';
+
 import * as style from '../App.less';
 
-export default function Teams() {
+function useTeams() {
+  let [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://www.mocky.io/v2/5c9d99d133000056003f2385')
+      .then(({ data }) => {
+        // navigatge to the first team's members page
+        navigate(`/teams/${data[0].id}/members`, { replace: true });
+        setTeams(data)
+      });
+  }, []);
+
+  return teams;
+}
+
+export default function Teams({ children }) {
+  let teams = useTeams();
+
   return (
     <Fragment>
       <div className={style.Breadcrumb}>
-        Teams
+        Teams >
+        <ul>
+          {teams.map(team => (
+            <li key={team.id}>
+              <Link to={`/teams/${team.id}/members`}>
+                {team.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className={style.Box}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed imperdiet dui. Integer vel turpis id nulla dictum eleifend quis vel lacus. Etiam non mauris sed ex rhoncus sagittis ac ac lacus. Quisque pharetra sem dui, ac egestas quam lacinia vitae. Nullam ut mollis lorem, sit amet aliquam sem. Ut placerat commodo faucibus. In hac habitasse platea dictumst. Ut consectetur tortor id velit vehicula, eget ultrices neque pharetra. Suspendisse blandit feugiat nulla, a ornare lectus accumsan non. Donec at arcu nec lorem condimentum condimentum sed at est. Sed eu interdum felis.
-      </div>
+      {children}
     </Fragment>
   );
 }
