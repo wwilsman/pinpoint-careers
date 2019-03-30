@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import * as style from '../App.less';
 
-export default function Team() {
+export default function Teams() {
   return (
     <Fragment>
       <div className={style.Breadcrumb}>
