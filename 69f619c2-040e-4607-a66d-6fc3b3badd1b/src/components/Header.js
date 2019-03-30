@@ -23,8 +23,8 @@ export default function Header() {
       </ul>
 
       <div className={style.MenuUser}>
-        <i class={`far fa-user-circle ${style.Avatar}`} />
-        <i class="fas fa-ellipsis-v" />
+        <i className={`far fa-user-circle ${style.Avatar}`} />
+        <i className="fas fa-ellipsis-v" />
       </div>
     </div>
   );
