@@ -25,14 +25,6 @@ export default function Members({ location, navigate, teamId }) {
     return { ...member, linkTo, isActive };
   });
 
-  // get the active link to check if we need to redirect
-  let activeLink = members.find(({ isActive }) => isActive);
-
-  if (!activeLink && members.length) {
-    // navigatge to the first member's details page
-    navigate(members[0].linkTo, { replace: true });
-  }
-
   return (
     <MembersList members={members}/>
   );
