@@ -39,14 +39,12 @@ export default function Members({
     <Flex direction="row" align="start">
       <MembersList members={members}/>
 
+      {/* nested router to enable auto focus management and allow us to pass
+      * along member details */}
       {activeMember && (
-        <div style={{ width: '70%' }}>
-          {/* nested router to enable auto focus management and allow us to pass
-            * along member details */}
-          <Router>
-            <MemberDetails path=":memberId" member={activeMember}/>
-          </Router>
-        </div>
+        <Router>
+          <MemberDetails path=":memberId" member={activeMember}/>
+        </Router>
       )}
     </Flex>
   );

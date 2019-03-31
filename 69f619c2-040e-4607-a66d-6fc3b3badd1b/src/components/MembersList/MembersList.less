@@ -5,6 +5,16 @@
   box-shadow: @shadow;
   flex-grow: 1;
 
+  // shrink the sidebar when there is content visible beside it
+  &:nth-last-child(2) {
+    width: 320px;
+    flex-grow: 0;
+
+    + * {
+      flex-grow: 1
+    }
+  }
+
   ul {
     list-style: none;
 
@@ -37,6 +47,7 @@
     display: block;
     font-weight: 800;
     margin-bottom: 0.25rem;
+    font-size: @h4
   }
 
   .MemberListLocation {

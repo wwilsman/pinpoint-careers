@@ -1,0 +1,19 @@
+@import '../../../less/base.less';
+
+.MemberNav {
+  background: @blue;
+  list-style: none;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: @h5;
+  display: flex;
+
+  li {
+    padding: 15px 20px;
+
+    &.isActive {
+      border-bottom: 4px solid @orange;
+    }
+  }
+}
