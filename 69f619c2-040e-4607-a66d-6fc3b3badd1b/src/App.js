@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <Root path="/">
         <Teams path="/teams">
-          <Members path="/:teamId/members"/>
+          <Members path="/:teamId/members/*"/>
         </Teams>
 
         {/* redirect since there are no other top-level routes */}
