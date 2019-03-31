@@ -1,0 +1,19 @@
+@import "../../../less/base.less";
+
+.Breadcrumb {
+  font-size: @h1;
+  font-weight: 300;
+  margin: 0 0 30px;
+
+  > span:not(:last-child)::after {
+    .fas();
+    content: "\f105";
+    margin: 0 0.5em 0.25em;
+    font-size: 0.875em;
+    color: @subtext;
+  }
+
+  > span:last-child {
+    font-weight: 400;
+  }
+}

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from '@reach/router';
-import classnames from 'classnames/bind';
 import axios from 'axios';
 
-import * as style from '../App.less';
-
-const cx = classnames.bind(style);
+import MembersList from '../components/MembersList';
 
 function useMembers(teamId) {
   let [members, setMembers] = useState([]);
@@ -38,30 +34,6 @@ export default function Members({ location, navigate, teamId }) {
   }
 
   return (
-    <div className={style.MemberList}>
-      <ul>
-        {members.map((member, i) => (
-          <li key={i}>
-            <Link
-              to={member.linkTo}
-              className={cx({
-                isActive: member.isActive
-              })}
-            >
-              <span className={style.MemberListName}>
-                {member.name.first}
-                &nbsp;
-                {member.name.last}
-              </span>
-              <span className={style.MemberListLocation}>
-                {member.location.city}
-                ,&nbsp;
-                {member.location.state}
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <MembersList members={members}/>
   );
 }

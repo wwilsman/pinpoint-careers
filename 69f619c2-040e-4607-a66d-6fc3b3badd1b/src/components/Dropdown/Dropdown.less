@@ -1,0 +1,47 @@
+@import "../../../less/base.less";
+
+.Dropdown {
+  position: relative;
+  white-space: nowrap;
+
+  > span {
+    cursor: pointer;
+
+    &::after {
+      .fas();
+      content: "\f0d7";
+      font-size: 0.875em;
+      margin-left: 0.25em;
+    }
+  }
+
+  ul {
+    font-size: @h4;
+    position: absolute;
+    left: -1rem;
+    top: calc(100% + 1rem);
+    background: white;
+    list-style: none;
+    box-shadow: @shadow;
+    display: none;
+
+    li:not(:last-child) {
+      border-bottom: 1px solid rgba(black, 0.1);
+    }
+  }
+
+  &.isOpen ul {
+    display: block;
+  }
+
+  a {
+    padding: 1rem;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      background: rgba(black, 0.05);
+    }
+  }
+}

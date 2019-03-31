@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-import Dropdown from './Dropdown';
-import * as style from '../App.less';
+import Dropdown from '../Dropdown';
+import * as style from './Breadcrumb.less';
 
 export default function Breadcrumb({ items }) {
   return (

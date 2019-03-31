@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from '@reach/router';
 import classnames from 'classnames/bind';
 
-import * as style from '../App.less';
-
+import * as style from './Dropdown.less';
 const cx = classnames.bind(style);
 
 export default function Dropdown({ title, items, ...props }) {

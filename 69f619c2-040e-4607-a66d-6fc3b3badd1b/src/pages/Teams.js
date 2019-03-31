@@ -48,7 +48,6 @@ export default function Teams({ location, navigate, children }) {
   return (
     <Fragment>
       <Breadcrumb items={breadcrumbs}/>
-
       {children}
     </Fragment>
   );

@@ -1,0 +1,45 @@
+@import "../../../less/base.less";
+
+.MemberList {
+  background: white;
+  box-shadow: @shadow;
+
+  ul {
+    list-style: none;
+
+    li:not(:last-child) {
+      border-bottom: 1px solid rgba(black, 0.1);
+    }
+  }
+
+  a {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      background: rgba(black, 0.05);
+    }
+
+    &.isActive {
+      background: @blue;
+      color: white;
+
+      .MemberListLocation {
+        color: white;
+      }
+    }
+  }
+
+  .MemberListName {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  .MemberListLocation {
+    display: block;
+    color: @subtext;
+  }
+}

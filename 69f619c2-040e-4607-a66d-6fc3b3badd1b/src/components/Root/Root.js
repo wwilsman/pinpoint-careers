@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import * as style from '../App.less';
+import Header from '../Header';
+import * as style from './Root.less';
 
 export default function Root({ children }) {
   return (
