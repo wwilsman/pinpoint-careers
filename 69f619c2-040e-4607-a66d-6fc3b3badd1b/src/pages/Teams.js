@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Link, navigate } from '@reach/router';
 import axios from 'axios';
 
+import Breadcrumb from '../components/Breadcrumb';
 import * as style from '../App.less';
 
 function useTeams() {
@@ -20,23 +21,34 @@ function useTeams() {
   return teams;
 }
 
-export default function Teams({ children }) {
+export default function Teams({ location, children }) {
   let teams = useTeams();
+
+  // map data to link objects for the breadcrumb component
+  let teamLinks = teams.map(team => {
+    let title = team.name;
+    let linkTo = `/teams/${team.id}/members`;
+    return { title, linkTo };
+  });
+
+  // get the active link for the dropdown title
+  let activeLink = teamLinks.find(({ linkTo }) => {
+    return location.pathname.indexOf(linkTo) === 0;
+  });
+
+  // remove the active link from the list
+  teamLinks = teamLinks.filter(link => link !== activeLink);
+
+  let breadcrumbs = [{
+    title: 'Teams'
+  }, {
+    title: activeLink ? activeLink.title : '...',
+    nav: teamLinks.length ? teamLinks : null
+  }];
 
   return (
     <Fragment>
-      <div className={style.Breadcrumb}>
-        Teams >
-        <ul>
-          {teams.map(team => (
-            <li key={team.id}>
-              <Link to={`/teams/${team.id}/members`}>
-                {team.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Breadcrumb items={breadcrumbs}/>
 
       {children}
     </Fragment>

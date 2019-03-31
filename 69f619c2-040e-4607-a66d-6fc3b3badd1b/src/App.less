@@ -1,80 +1,147 @@
 @import "../less/base.less";
 
+.fas() {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 0.875em;
+  text-rendering: auto;
+  line-height: 1;
+}
+
 .App {
-	.Header {
-		height: 40px;
-		padding: 15px 30px;
-		background: @blue;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		color: #FFF;
+  .Header {
+    height: 40px;
+    padding: 15px 30px;
+    background: @blue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #FFF;
 
-		svg {
-			height: 35px;
-			color: #FFF;
-		}
+    svg {
+      height: 35px;
+      color: #FFF;
+    }
 
-		.Menu {
-			list-style-type: none;
-			display: flex;
-			flex-direction: row;
-			margin: 0 0 0 20px;
-			flex: 1 0 auto;
+    .Menu {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      margin: 0 0 0 20px;
+      flex: 1 0 auto;
 
-			li {
-				flex: 0 0 auto;
-				padding: 0 20px;
-				font-size: 1.4rem;
-				font-weight: @bold;
-				line-height: 67px;
-				border-bottom: 3px solid transparent;
+      li {
+        flex: 0 0 auto;
+        padding: 0 20px;
+        font-size: 1.4rem;
+        font-weight: @bold;
+        line-height: 67px;
+        border-bottom: 3px solid transparent;
 
-				i {
-					font-size: 1.8rem;
-					margin: 0 10px 0 0;
-				}
+        i {
+          font-size: 1.8rem;
+          margin: 0 10px 0 0;
+        }
 
-				&:global(.active) {
-					border-bottom: 3px solid @secondary;
-				}
-			}
-		}
+        &:global(.active) {
+          border-bottom: 3px solid @secondary;
+        }
+      }
+    }
 
-		.MenuUser {
-			display: flex;
-			flex-direction: row;
-			flex: 0 0 auto;
-			font-size: 1.4rem;
-			font-weight: @bold;
-			line-height: 67px;
-			border-bottom: 3px solid transparent;
+    .MenuUser {
+      display: flex;
+      flex-direction: row;
+      flex: 0 0 auto;
+      font-size: 1.4rem;
+      font-weight: @bold;
+      line-height: 67px;
+      border-bottom: 3px solid transparent;
 
-			i {
-				font-size: 1.8rem;
-				line-height: 67px;
+      i {
+        font-size: 1.8rem;
+        line-height: 67px;
 
-				&.Avatar {
-					margin: 0 15px 0 0;
-					font-size: 3rem;
-				}
-			}
-		}
-	}
+        &.Avatar {
+          margin: 0 15px 0 0;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
 
-	.Content {
-		padding: 30px;
+  .Content {
+    padding: 30px;
 
-		.Breadcrumb {
-			font-size: @h1;
-			font-weight: 300;
-			margin: 0 0 30px;
-		}
+    .Breadcrumb {
+      font-size: @h1;
+      font-weight: 300;
+      margin: 0 0 30px;
 
-		.Box {
-			background: #FFF;
-			box-shadow: @shadow;
-			padding: 20px;
-		}
-	}
+      > span:not(:last-child)::after {
+        .fas();
+        content: "\f105";
+        margin: 0 0.5em 0.25em;
+        color: @subtext;
+      }
+
+      > span:last-child {
+        font-weight: 400;
+      }
+
+      .Dropdown {
+        position: relative;
+        white-space: nowrap;
+
+        > span {
+          cursor: pointer;
+
+          &::after {
+            .fas();
+            content: "\f0d7";
+            margin-left: 0.25em;
+          }
+        }
+
+        ul {
+          font-size: @h4;
+          position: absolute;
+          left: -1rem;
+          top: calc(100% + 1rem);
+          background: white;
+          list-style: none;
+          box-shadow: @shadow;
+          display: none;
+
+          li:not(:last-child) {
+            border-bottom: 1px solid rgba(black, 0.2);
+          }
+        }
+
+        &.isOpen ul {
+          display: block;
+        }
+
+        a {
+          padding: 1rem;
+          display: block;
+          color: inherit;
+          text-decoration: none;
+
+          &:hover {
+            background: rgba(black, 0.05);
+          }
+        }
+      }
+    }
+
+    .Box {
+      background: #FFF;
+      box-shadow: @shadow;
+      padding: 20px;
+    }
+  }
 }
