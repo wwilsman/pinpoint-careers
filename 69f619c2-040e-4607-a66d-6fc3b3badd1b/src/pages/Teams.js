@@ -1,9 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Link, navigate } from '@reach/router';
 import axios from 'axios';
 
 import Breadcrumb from '../components/Breadcrumb';
-import * as style from '../App.less';
 
 function useTeams() {
   let [teams, setTeams] = useState([]);
@@ -11,17 +9,13 @@ function useTeams() {
   useEffect(() => {
     axios
       .get('http://www.mocky.io/v2/5c9d99d133000056003f2385')
-      .then(({ data }) => {
-        // navigatge to the first team's members page
-        navigate(`/teams/${data[0].id}/members`, { replace: true });
-        setTeams(data)
-      });
+      .then(({ data }) => setTeams(data));
   }, []);
 
   return teams;
 }
 
-export default function Teams({ location, children }) {
+export default function Teams({ location, navigate, children }) {
   let teams = useTeams();
 
   // map data to link objects for the breadcrumb component
@@ -35,6 +29,11 @@ export default function Teams({ location, children }) {
   let activeLink = teamLinks.find(({ linkTo }) => {
     return location.pathname.indexOf(linkTo) === 0;
   });
+
+  if (!activeLink && teamLinks.length) {
+    // navigatge to the first team's members page
+    navigate(teamLinks[0].linkTo, { replace: true });
+  }
 
   // remove the active link from the list
   teamLinks = teamLinks.filter(link => link !== activeLink);
